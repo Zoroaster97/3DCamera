@@ -56,6 +56,7 @@ void Camera::WalkStraight(float fSpeed)
 void Camera::WalkTransverse(float fSpeed)
 {
 	camera_x = camera_x + fSpeed*cos(rad_yz)*sin(rad_xz);
+	camera_y += fSpeed*sin(rad_yz);
 	camera_z = camera_z - fSpeed*cos(rad_yz)*cos(rad_xz);
 
 	lookat_x = camera_x + sight*cos(rad_yz)*cos(rad_xz);
