@@ -3,23 +3,23 @@
 #include <glut.h>
 #include "Camera.h"
 
-int m_WinWidth = 640;
-int m_WinHeigh = 480;
+int window_width = 640;
+int window_height = 480;
 
 Camera camera;
 
 void setProjection()
 {
-	if (0 == m_WinHeigh)
+	if (0 == window_height)
 	{
-		m_WinHeigh = 1;
+		window_height = 1;
 	}
-	double ratio = 1.0 * m_WinWidth / m_WinHeigh;
+	double ratio = 1.0 * window_width / window_height;
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(45, ratio, 0.01, 100);
-	glViewport(0, 0, m_WinWidth, m_WinHeigh);
+	glViewport(0, 0, window_width, window_height);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt(camera.camera_x, camera.camera_y, camera.camera_z, camera.lookat_x, camera.lookat_y, camera.lookat_z, 0.0f, 1.0f, 0.0f);
@@ -103,7 +103,7 @@ void main()
 {
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(640, 480);
-	glutCreateWindow("balababa");
+	glutCreateWindow("Teapot");
 	glutDisplayFunc(display);
 	glutSpecialFunc(SpecialKeys);
 	glutKeyboardFunc(KeyboardKeys);
